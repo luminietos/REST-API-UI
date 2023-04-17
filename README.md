@@ -1,4 +1,4 @@
-# RESTAPI
+# REST-API UI
 A Node.js REST API application with five different routes. 
 
 ## Description
