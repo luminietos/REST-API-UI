@@ -1,12 +1,18 @@
 # REST-API UI
-A Node.js REST API application with five different routes. 
+A Node.js REST API application with five different routes, where the user can look up movies via ID.
 
 ## Description
 This is a REST API application (with front-end styling/layout) created in April 2023. 
 
+It's deployed on [Render]() (and [GitHub]()), and made using and utilizing JavaScript, JSON and React, alongside a bit of HTML and CSS. The database used in this project is from [MongoDB](https://www.mongodb.com/) (sample_mflix).
+
+This site is currently under construction. Please hold.
 
 ## Step-by-step guide - *"How do I actually use this site?"*
-Under construction, please hold.
+
+[This site]() is a movie database. It utilizes the [Atlas MongoDB database "sample_mflix"](https://www.mongodb.com/). 
+
+With it, you can...
 
 ## Purpose
 This is the third of the three projects (first being [a Node.js Guestbook](https://github.com/luminietos/GB) and the second technically being the first part to this project: [REST API routes] without the UI I'm making in this one) I created for my University's Full Stack course. 
