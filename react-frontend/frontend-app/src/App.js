@@ -43,9 +43,10 @@ const App = () => {
       });
   };
 
-  // MODIFYING
+  // MODIFYING A MOVIE
   const modifyMovie = () => {
     console.log("Query: " + query);
+    // calls the API to make a PUT request (to modify a movie)
     fetch("http://localhost:3000/api/modify/" + query, {
       method: "PUT",
     })
@@ -64,25 +65,27 @@ const App = () => {
   // MOVIES IN ARRAY 
   const MovieArray = (props) => {
     const { data } = props;
-    // the posters
+    // variable declaration: the posters!
     let posterImg;
 
-    // Check poster
+    // checks the poster
     const CheckPoster = (props) => {
       let poster = props.src;
-      // If movie poster doesn't exist
+      // if the movie poster doesn't exist...
       if (poster === "" || poster === null) {
         posterImg =
           "https://openvirtualworlds.org/omeka/files/fullsize/1/30/movie-big.jpg";
       } else {
         posterImg = poster;
       }
-      // Return movie image
+      // returns the movie poster
       return (
         <img
           src={posterImg}
           alt="Poster"
+          // (for styling purposes...)
           className="img-thumbnail"
+          // an error handler
           onError={(e) => {
             e.target.onerror = null;
             e.target.src =
@@ -93,6 +96,7 @@ const App = () => {
       );
     };
 
+    // RETURNS THE MOVIE LIST ON A TABLE
     return (
       <div>
         <table className="table table-striped table-bordered">
@@ -112,7 +116,7 @@ const App = () => {
                 <td> {item.year} </td>
                 <td> {item.directors} </td>
                 <td> {item.imdb.rating}</td>
-                {/*  Create image*/}
+                {/*  creates image */}
                 <td id="pic">
                   <CheckPoster src={item.poster} />
                 </td>
@@ -124,11 +128,12 @@ const App = () => {
     );
   };
 
-  // This is the return for the form
+  // THE RETURN FOR THE FORM
   return (
     <div>
       <h1>Find or modify movies</h1>
       <div>
+
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label>Search/set: </label>
@@ -160,4 +165,7 @@ const App = () => {
   );
 };
 
+// when the above form is submitted, it calls the handleSubmit() function
+    // that updates movie data to localStorage.
+    
 export default App;
