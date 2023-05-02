@@ -1,10 +1,11 @@
 // IMPORTS
 import React, { useState } from "react"; 
-// import "./index.css";
+import "./index.css";
 
 // THE APP FUNCTION 
 const App = () => { 
-  const [query, setQuery] = useState(""); 
+
+  const [query, setQuery] = useState(''); 
 
   // defines the first button handler: the submit button
   const handleSubmit = (event) => {
@@ -48,7 +49,7 @@ const App = () => {
     console.log("Query: " + query);
     // calls the API to make a PUT request (to modify a movie)
     fetch("http://localhost:3000/api/modify/" + query, {
-      method: "PUT",
+      method: "PUT"
     })
       .then((results) => {
         return results.json();
@@ -85,6 +86,7 @@ const App = () => {
           alt="Poster"
           // (for styling purposes...)
           className="img-thumbnail"
+
           // an error handler
           onError={(e) => {
             e.target.onerror = null;
