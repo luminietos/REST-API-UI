@@ -2,13 +2,14 @@
 A Node.js REST API application where the user can look up movies from a database.
 
 <img width="346" alt="mflix movies, tablet size" src="https://github.com/luminietos/REST-API-UI/assets/77718358/127cdb92-58ba-418b-a7a5-49a5be3b0569">
+(tablet view)
 
 ## Description
-This is a REST API application (with front-end styling/layout) created in April 2023. 
+This is a REST API application (with front-end styling/layout) created in April/May 2023. 
 
 It's deployed on [Render]() (and [GitHub]()), and made using and utilizing JavaScript, JSON and React, alongside a bit of HTML and CSS. The database used in this project is from [MongoDB](https://www.mongodb.com/) (sample_mflix).
 
-This site is currently under construction. Please hold.
+This site is currently under construction due to issues with deployment (while the site itself is still functional!). Please hold.
 
 ## Step-by-step guide - *"How do I actually use this site?"*
 
@@ -17,6 +18,9 @@ This site is currently under construction. Please hold.
 At the top of the website (below the heading) is a search field.
 
 If the user enters the name or ID of a movie that's in the database, it -- and only it -- will be displayed in the table. If it's not found, nothing will show up.
+
+<img width="334" alt="mflix movies, mobile size, submit button" src="https://github.com/luminietos/REST-API-UI/assets/77718358/96a33ca2-69b6-4873-ba76-d522764d2d3c">
+(mobile view)
 
 By clicking on the "Search all" button, the user will see an array of no more than ten movies in a table.
 This table, at first glance, displays the movie's title, publishing year, director/s, IMDB rating, as well as an image of its poster. 
