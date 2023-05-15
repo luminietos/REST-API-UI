@@ -2,10 +2,10 @@
   "name": "restapiui",
   "version": "1.0.0",
   "description": "restapiui",
-  "main": "restapi.js",
+  "main": "App.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node restapi.js"
+    "start": "node App.js"
   },
   "engines": {
     "node": ">=16.17.0"
