@@ -20,7 +20,9 @@ At the top of the website (below the heading) is a search field.
 If the user enters the name or ID of a movie that's in the database, it -- and only it -- will be displayed in the table. If it's not found, nothing will show up.
 
 <img width="334" alt="mflix movies, mobile size, submit button" src="https://github.com/luminietos/REST-API-UI/assets/77718358/96a33ca2-69b6-4873-ba76-d522764d2d3c">
+
 (mobile view)
+
 
 By clicking on the "Search all" button, the user will see an array of no more than ten movies in a table.
 This table, at first glance, displays the movie's title, publishing year, director/s, IMDB rating, as well as an image of its poster. 
