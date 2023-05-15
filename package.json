@@ -8,7 +8,7 @@
     "start": "node App.js"
   },
   "engines": {
-    "node": ">=16.17.0"
+    "node": ">=20.1.0"
   },
   "repository": {
     "type": "git",
