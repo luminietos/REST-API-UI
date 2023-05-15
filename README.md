@@ -1,4 +1,5 @@
 # REST-API UI
+## "Mflix Movies Midnight Madness"
 A Node.js REST API application where the user can look up movies from a database.
 
 <img width="346" alt="mflix movies, tablet size" src="https://github.com/luminietos/REST-API-UI/assets/77718358/127cdb92-58ba-418b-a7a5-49a5be3b0569">
