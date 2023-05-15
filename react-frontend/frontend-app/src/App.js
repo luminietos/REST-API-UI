@@ -124,7 +124,7 @@ const App = () => {
 
     // RETURNS THE MOVIE LIST ON A TABLE
     return (
-      <div>
+      <div id="table-div-1">
         <table id="table-div" className="table table-striped table-bordered">
           <thead>
             <tr key={props.id}>

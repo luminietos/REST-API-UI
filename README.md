@@ -1,5 +1,7 @@
 # REST-API UI
-A Node.js REST API application with five different routes, where the user can look up movies via ID.
+A Node.js REST API application where the user can look up movies from a database.
+
+<img width="346" alt="mflix movies, tablet size" src="https://github.com/luminietos/REST-API-UI/assets/77718358/127cdb92-58ba-418b-a7a5-49a5be3b0569">
 
 ## Description
 This is a REST API application (with front-end styling/layout) created in April 2023. 
