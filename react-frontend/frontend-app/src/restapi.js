@@ -66,9 +66,30 @@ app.post("/api/add", function(req, res) {
 });
 
 // modifies the information of movie by ID number
-app.put("/api/modify/:id", function(req, res) {
-  res.send("Modify movie by " + req.params.id);
+app.put("/api/modify/:id", function (req, res) {
+  try {
+    // modified movie logic, dummy data
+    const modifiedMovie = {
+      id: req.params.id,
+      title: "Barbie",
+      director: "Greta Gerwig",
+      year: "2023"
+    };
+
+    // (assuming the modification was successful) 
+    // it sends the modified movie as JSON response
+    res.json(modifiedMovie);
+  } catch (error) {
+    console.error(error);
+    // sends an error response if an error occurs during the mod. process 
+    res.status(500).json({ error: "Failed to modify the movie. " + error.message });
+  }
 });
+
+
+// app.put("/api/modify/:id", function(req, res) {
+//   res.send("Modify movie by " + req.params.id);
+// });
 
 // app.put("/api/modify/:id", function(req, res) {
 //   // logic to modify the movie information

@@ -60,10 +60,17 @@ const App = () => {
     console.log("Query: " + query);
     // calls the API to make a PUT request (to modify a movie)
     try {
-      console.log("Query: " + query);
       const response = await fetch(`http://localhost:8080/api/modify/${query}`, {
         method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        }
       });
+  
+      if (!response.ok) {
+        throw new Error("Failed to modify the movie."); // Throw an error if the response is not successful
+      }
+  
       const data = await response.json();
       console.log("Results: ", data);
       const items = data;
@@ -74,6 +81,22 @@ const App = () => {
       console.error(error);
     }
   };
+
+    //   try {
+  //     console.log("Query: " + query);
+  //     const response = await fetch(`http://localhost:8080/api/modify/${query}`, {
+  //       method: "PUT",
+  //     });
+  //     const data = await response.json();
+  //     console.log("Results: ", data);
+  //     const items = data;
+  //     console.log("One movie: ", data);
+  
+  //     setResults(items);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
   // MOVIES IN ARRAY
   const MovieArray = (props) => {
