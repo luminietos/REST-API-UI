@@ -1,19 +1,20 @@
 // IMPORTS
-import React, { useState } from "react"; 
+import React, { useState } from "react";
 import "./index.css";
 
-// THE APP FUNCTION 
-const App = () => { 
-
-  const [query, setQuery] = useState(''); 
+// THE APP FUNCTION
+const App = () => {
+  const [query, setQuery] = useState("");
+  const [results, setResults] = useState([]);
 
   // defines the first button handler: the submit button
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("This happened: ", event.target);
     console.log("id: ", query);
-
-    GetMovieData();
+  
+    // calls the GetMovieData function w the query state var.
+    GetMovieData(query);
   };
 
   // defines the second button handler: prevents default behavior
@@ -21,51 +22,75 @@ const App = () => {
     event.preventDefault();
     console.log("This happened: ", event.target);
 
-    GetMovieData();
+    GetMovieData(query);
   };
-  
-  const [results, setResults] = useState([]);
 
   // GETS DATA FROM API & LOGS IT
-  const GetMovieData = () => {
-    // fetches movie w given query & returns it as JSON data
-    fetch("http://localhost:3000/api/movies")
-      .then((results) => {
-        return results.json();
-      })
-      // iterates through each item + prints em out
-      .then((data) => {
-        console.log(data);
-        const items = data;
-
-        // updates results based on what was logged
-          // and prints out all the items (movies) on the list
+  const GetMovieData = async (query) => {
+    try {
+      const response = await fetch(`http://localhost:8080/api/movies?search=${query}`);
+      const data = await response.json();
+      console.log(data);
+      const items = data.map((item) => ({ ...item, showMoreData: false }));
+  
+      if (query) {
+        const queryLower = query.toLowerCase();
+        const filteredItems = items.filter(
+          (item) =>
+            item.title.toLowerCase().includes(queryLower) ||
+            item._id.toLowerCase().includes(queryLower)
+        );
+        if (filteredItems.length > 0) {
+          setResults(filteredItems);
+        } else {
+          setResults([]);
+        }
+      } else {
         setResults(items);
-      });
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
+  
+  
 
   // MODIFYING A MOVIE
-  const modifyMovie = () => {
+  const modifyMovie = async () => {
     console.log("Query: " + query);
     // calls the API to make a PUT request (to modify a movie)
-    fetch("http://localhost:3000/api/modify/" + query, {
-      method: "PUT"
-    })
-      .then((results) => {
-        return results.json();
-      })
-      .then((data) => {
-        console.log("Results: ", data);
-        const items = data;
-        console.log("One movie: ", data);
-
-        setResults(items);
+    try {
+      console.log("Query: " + query);
+      const response = await fetch(`http://localhost:8080/api/modify/${query}`, {
+        method: "PUT",
       });
+      const data = await response.json();
+      console.log("Results: ", data);
+      const items = data;
+      console.log("One movie: ", data);
+  
+      setResults(items);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  // MOVIES IN ARRAY 
+  // MOVIES IN ARRAY
   const MovieArray = (props) => {
     const { data } = props;
+
+    const handleTitleClick = (id) => {
+      setResults((prevState) =>
+        prevState.map((item) => {
+          if (item._id === id) {
+            return { ...item, showMoreData: !item.showMoreData };
+          }
+          return item;
+        })
+      );
+    };
+
+    // THE POSTER
     // variable declaration: the posters!
     let posterImg;
 
@@ -86,7 +111,6 @@ const App = () => {
           alt="Poster"
           // (for styling purposes...)
           className="img-thumbnail"
-
           // an error handler
           onError={(e) => {
             e.target.onerror = null;
@@ -101,22 +125,48 @@ const App = () => {
     // RETURNS THE MOVIE LIST ON A TABLE
     return (
       <div>
-        <table className="table table-striped table-bordered">
+        <table id="table-div" className="table table-striped table-bordered">
           <thead>
             <tr key={props.id}>
               <th scope="col">Title</th>
               <th scope="col">Year</th>
-              <th scope="col">Directors</th>
+              <th scope="col">Director/s</th>
               <th scope="col">Rating</th>
               <th scope="col">Poster</th>
             </tr>
           </thead>
           <tbody>
-            {data.map((item, i) => (
-              <tr>
-                <td key={i}> {item.title}</td>
+          {Array.isArray(data) && data.map((item, i) => (
+              <tr key={i}>
+                <td
+                  onClick={() => handleTitleClick(item._id)}
+                  style={{ cursor: "pointer" }}
+                >
+                  <span id="movie-title">{item.title}</span>
+                  {item.showMoreData && (
+                    <div id="toggle-content">
+                      <p id="emptyrow"> </p>
+                      <p>
+                        <strong>Plot: </strong>
+                        {item.plot}
+                      </p>
+                      <p>
+                        <strong>Genres: </strong>
+                        {item.genres.join(", ")}
+                      </p>
+                      <p>
+                        <strong>Cast: </strong>
+                        {item.cast.join(", ")}
+                      </p>
+                      <p>
+                        <strong>MongoDB ID: </strong>
+                        {item._id}
+                      </p>
+                    </div>
+                  )}
+                </td>
                 <td> {item.year} </td>
-                <td> {item.directors} </td>
+                <td> {item.directors.join(", ")} </td>
                 <td> {item.imdb.rating}</td>
                 {/*  creates image */}
                 <td id="pic">
@@ -133,9 +183,10 @@ const App = () => {
   // THE RETURN FOR THE FORM
   return (
     <div>
-      <h1>Find or modify movies</h1>
+      <h1> MFLIX MOVIES </h1>
+      <hr></hr>
+      <h2>Find or modify movies.</h2>
       <div>
-
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label>Search/set: </label>
@@ -144,23 +195,35 @@ const App = () => {
               value={query}
               onChange={(event) => setQuery(event.target.value)}
               className="form-control"
-              placeholder="Set id: "
+              placeholder="Type name/id: "
               name="query"
+              id="input-txt-placeholder"
             />
           </div>
           <div className="form-group">
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" id="submit-btn" className="btn btn-primary">
               Submit
             </button>
 
-            <button type="button" className="btn" onClick={handleClick}>
+            <button
+              type="button"
+              id="search-btn"
+              className="btn"
+              onClick={handleClick}
+            >
               Search all
             </button>
-            <button type="button" className="btn" onClick={modifyMovie}>
-              Modify movie
+            <button
+              type="button"
+              id="modify-btn"
+              className="btn"
+              onClick={modifyMovie}
+            >
+              Modify
             </button>
           </div>
         </form>
+        <p> Your search result/s will appear in the table below.</p>
       </div>
       <MovieArray data={results} />
     </div>
@@ -168,6 +231,6 @@ const App = () => {
 };
 
 // when the above form is submitted, it calls the handleSubmit() function
-    // that updates movie data to localStorage.
-    
+// that updates movie data to localStorage.
+
 export default App;

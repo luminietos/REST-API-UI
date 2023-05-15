@@ -1,14 +1,158 @@
 body {
-    margin: 10px;
+    margin: 12px;
+    background-color: #222b45;
+    color: #e1f3fd;
+    /* near-white blue, bit gentler tho */
     text-align: center;
+    font-family: arial;
 }
 
-div p {
-    border: 1px solid blue;
-    border-radius: 10px;
-    padding: 10px;
+/* THE TABLE */
+
+#table-div {
+    background-color: #e1f3fd;
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 800px;
+    overflow: auto;
+    color: #222b45;
 }
 
-.green {
-    color: green;
+#toggle-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#movie-title {
+    font-style: italic;
+}
+
+/* the title becomes underlined & a different color on hover
+(to indicate it's clickable to the user) */
+#movie-title:hover {
+    color: #2250da;
+    text-decoration: underline;
+    transition: all 0.2s ease;
+}
+
+tbody {
+    font-size: 18px;
+}
+
+/* the 'titles' of the table */
+th {
+    letter-spacing: 2px;
+    color: #e1f3fd;
+}
+
+thead {
+    background-color: #0d6de9;
+}
+
+/* zebra stripings */
+tbody tr:nth-child(odd) {
+    background-color: #ceebfc;
+}
+
+tbody tr:nth-child(even) {
+    /* lighter */
+    background-color: #def3ff;
+}
+
+/* TEXT */
+
+h1 {
+    padding: 40px;
+    font-size: 60px;
+    -webkit-text-stroke: 2px #0d6de9;
+    letter-spacing: 2px;
+    color: #222b45;
+    font-style: italic;
+    background-image: linear-gradient(to bottom, #0d6de9, #4698f0, #6bb5f9, #9cd3fc);
+    -webkit-background-clip: text;
+    background-clip: text; /* fixes the error: "Also define the standard property 'background-clip' for compatibility" */
+    -webkit-text-fill-color: transparent;
+    animation: neon 1.5s ease-in-out infinite alternate;
+}
+@keyframes neon {
+    from {
+        text-shadow: 0 0 10px #0d6de9, 0 0 20px #0d6de9, 0 0 30px #0d6de9;
+    }
+    to {
+        text-shadow: 0 0 20px #0d6de9, 0 0 30px #0d6de9, 0 0 40px #0d6de9;
+    }
+}
+
+
+h2 {
+    padding: 20px;
+    color: #6bb5f9;
+}
+
+label {
+    font-size: 20px;
+    margin: 5px;
+    color: #badefa;
+}
+
+p {
+    padding-top: 20px;
+}
+
+input[type=search] {
+    width: 100%;
+    background-color: #e1f3fd;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=search]:focus {
+    color: #222b45;
+    background-color: #e1f3fd;
+}
+
+/* only affect placeholder text! */
+::placeholder {
+    opacity: 15%;
+    font-style: italic;
+}
+
+/* BUTTONS */
+
+.btn {
+    padding: 15px;
+    border-radius: 100px;
+    margin: 15px;
+    margin-bottom: 30px;
+    background-color: #0d6de9;
+    color: #e1f3fd;
+    border-color: #2250da;
+
+    transition: all 0.4s ease;
+}
+.btn:hover {
+    background-color: #58a8f3;
+    color: #e1f3fd;
+    border-color: #2250da;
+    cursor: pointer;
+}
+
+/* THE DROPDOWN MENU */
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 12px 16px;
+}
+
+.dropdown-content.show {
+    display: block;
 }
