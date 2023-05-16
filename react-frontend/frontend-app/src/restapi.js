@@ -77,14 +77,15 @@ app.put("/api/modify/:id", function (req, res) {
     };
 
     // (assuming the modification was successful) 
-    // it sends the modified movie as JSON response
+    // send the modified movie as a JSON response
     res.json(modifiedMovie);
   } catch (error) {
     console.error(error);
-    // sends an error response if an error occurs during the mod. process 
+    // send an error response if an error occurs during the modification process
     res.status(500).json({ error: "Failed to modify the movie. " + error.message });
   }
 });
+
 
 
 // app.put("/api/modify/:id", function(req, res) {
