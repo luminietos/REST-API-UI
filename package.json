@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/luminietos/REST-API-UI/issues"
   },
-  "homepage": "https://github.com/luminietos/REST-API-UI"
+  "homepage": "https://github.com/luminietos/REST-API-UI",
+  "dependencies": {
+    "gh-pages": "^5.0.0"
+  }
 }
