@@ -27,7 +27,8 @@
   },
   "homepage": "https://luminietos.github.io/REST-API-UI",
   "dependencies": {
-    "gh-pages": "^5.0.0"
+    "gh-pages": "^5.0.0",
+    "react": "^18.2.0"
   },
   "devDependencies": {
     "react-scripts": "^5.0.1"
