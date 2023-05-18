@@ -2,7 +2,7 @@
   "name": "restapiui",
   "version": "1.0.0",
   "description": "restapiui",
-  "main": "src/App.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm start",
