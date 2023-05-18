@@ -2,10 +2,12 @@
   "name": "restapiui",
   "version": "1.0.0",
   "description": "restapiui",
-  "main": "App.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node App.js"
+    "start": "node App.js",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject"
   },
   "engines": {
     "node": ">=20.1.0"
@@ -23,8 +25,11 @@
   "bugs": {
     "url": "https://github.com/luminietos/REST-API-UI/issues"
   },
-  "homepage": "https://github.com/luminietos/REST-API-UI",
+  "homepage": "https://luminietos.github.io/REST-API-UI",
   "dependencies": {
     "gh-pages": "^5.0.0"
+  },
+  "devDependencies": {
+    "react-scripts": "^5.0.1"
   }
 }

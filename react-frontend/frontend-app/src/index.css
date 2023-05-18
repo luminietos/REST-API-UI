@@ -72,6 +72,7 @@ tbody tr:nth-child(even) {
 
 /* TEXT */
 
+/* heading: neon (effect) */
 h1 {
     padding: 40px;
     font-size: 3.5rem;
@@ -127,12 +128,13 @@ input[type=search] {
     cursor: pointer;
 }
 
+/* when the search bar is clicked... */
 input[type=search]:focus {
     color: #222b45;
     background-color: #e1f3fd;
 }
 
-/* only affect placeholder text! */
+/* only affects placeholder text! */
 ::placeholder {
     opacity: 15%;
     font-style: italic;
@@ -156,6 +158,11 @@ input[type=search]:focus {
     color: #e1f3fd;
     border-color: #2250da;
     cursor: pointer;
+}
+.btn:visited { /* returns to o.g. colors after click */
+    background-color: #0d6de9;
+    color: #e1f3fd;
+    border-color: #2250da;
 }
 
 /* THE DROPDOWN MENU */
