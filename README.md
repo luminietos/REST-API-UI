@@ -19,7 +19,7 @@ This site is currently under construction due to issues with deployment (while t
 
 As you can see from the heading, the site is titled "Mflix Movies". The heading's neon effect flickers on hover. 
 
-At the top of the website (below the heading) is a search field. Below the search field, there are three buttons, and thus three different things you can do with a user input that matches an existing movie in the database.
+Below the heading is a search ("input") field. Below this search field are three buttons, and thus three different things you can do with a user input that matches an existing movie in the database. 
 
 <img width="159" alt="mflix movies, mobile size, search all button" src="https://github.com/luminietos/REST-API-UI/assets/77718358/8b412cbf-4ad9-4a77-b28c-2167f9ddbeee">
 
