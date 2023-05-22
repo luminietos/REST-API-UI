@@ -17,7 +17,7 @@ This site is currently under construction due to issues with deployment (while t
 
 [This site]() is a movie database. It utilizes the [Atlas MongoDB database "sample_mflix"](https://www.mongodb.com/). 
 
-As you can see from the heading, 
+As you can see from the heading, the site is titled "Mflix Movies". The heading's neon effect flickers on hover. 
 
 At the top of the website (below the heading) is a search field. Below the search field, there are three buttons, and thus three different things you can do with a user input that matches an existing movie in the database.
 
