@@ -82,14 +82,29 @@ h1 {
     font-style: italic;
     background-image: linear-gradient(to bottom, #0d6de9, #4698f0, #6bb5f9, #9cd3fc);
     -webkit-background-clip: text;
-    background-clip: text; /* fixes the error: "Also define the standard property 'background-clip' for compatibility" */
+    background-clip: text;
+    /* fixes the error: "Also define the standard property 'background-clip' for compatibility" */
     -webkit-text-fill-color: transparent;
     animation: neon 1.5s ease-in-out infinite alternate;
     width: 100%;
     box-sizing: border-box;
     max-width: 700px;
     margin: 0 auto;
+    /* adds animation on hover */
+    transition: all 0.2s ease;
 }
+
+/* adding animation to the header on hover */
+h1:hover {
+    /* resets animation properties */
+    animation: none;
+
+    /* adds flickering effect */
+    text-shadow: 0 0 10px #0d6de9, 0 0 20px #0d6de9, 0 0 30px #0d6de9;
+    /* the speed of the flickering */ 
+    animation: flicker 0.4s infinite alternate;
+}
+
 @keyframes neon { /* neon text effect */
     from {
         text-shadow: 0 0 10px #0d6de9, 0 0 20px #0d6de9, 0 0 30px #0d6de9;
@@ -99,12 +114,23 @@ h1 {
     }
 }
 
+@keyframes flicker { /* neon text flickering effect */
+    from {
+      text-shadow: 0 0 10px #0d6de9, 0 0 20px #0d6de9, 0 0 30px #0d6de9;
+    }
+    to {
+      text-shadow: 0 0 20px #0d6de9, 0 0 30px #0d6de9, 0 0 40px #0d6de9;
+    }
+  }
+  
 
+/* subheading */
 h2 {
     padding: 20px;
     color: #6bb5f9;
 }
 
+/* input field title */
 label {
     font-size: 20px;
     margin: 5px;
@@ -134,7 +160,7 @@ input[type=search]:focus {
     background-color: #e1f3fd;
 }
 
-/* only affects placeholder text! */
+/* only affects placeholder text!! */
 ::placeholder {
     opacity: 15%;
     font-style: italic;
@@ -153,6 +179,15 @@ input[type=search]:focus {
 
     transition: all 0.4s ease;
 }
+
+/* adjusts button size for smaller screens */
+@media (max-width: 600px) {
+    .btn {
+        padding: 10px;
+        margin: 10px;
+    }
+}
+
 .btn:hover {
     background-color: #58a8f3;
     color: #e1f3fd;

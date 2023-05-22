@@ -82,22 +82,6 @@ const App = () => {
     }
   };
 
-    //   try {
-  //     console.log("Query: " + query);
-  //     const response = await fetch(`http://localhost:8080/api/modify/${query}`, {
-  //       method: "PUT",
-  //     });
-  //     const data = await response.json();
-  //     console.log("Results: ", data);
-  //     const items = data;
-  //     console.log("One movie: ", data);
-  
-  //     setResults(items);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
-
   // MOVIES IN ARRAY
   const MovieArray = (props) => {
     const { data } = props;

@@ -17,7 +17,13 @@ This site is currently under construction due to issues with deployment (while t
 
 [This site]() is a movie database. It utilizes the [Atlas MongoDB database "sample_mflix"](https://www.mongodb.com/). 
 
+As you can see from the heading, 
+
 At the top of the website (below the heading) is a search field. Below the search field, there are three buttons, and thus three different things you can do with a user input that matches an existing movie in the database.
+
+<img width="159" alt="mflix movies, mobile size, search all button" src="https://github.com/luminietos/REST-API-UI/assets/77718358/8b412cbf-4ad9-4a77-b28c-2167f9ddbeee">
+
+(screen size: mobile view)
 
 ### the "Submit" button
 
@@ -34,7 +40,7 @@ This table, at first glance, displays the movie's title, publishing year, direct
 
 <img width="960" alt="mflix movies, normal size, search all button" src="https://github.com/luminietos/REST-API-UI/assets/77718358/bbe9618e-d5ce-4bdf-b64b-13582f2d78f4">
 
-(screen size: normal view)
+(screen size: normal view, full page w scroll bar)
 
 When, however, when the title of the movie (which is underlined and changes color on hover to indicate it's clickable) is clicked, a toggle menu opens up. This toggle menu displays more data on the movie that was clicked: its plot, genre/s and cast.
 

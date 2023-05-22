@@ -86,23 +86,6 @@ app.put("/api/modify/:id", function (req, res) {
   }
 });
 
-
-
-// app.put("/api/modify/:id", function(req, res) {
-//   res.send("Modify movie by " + req.params.id);
-// });
-
-// app.put("/api/modify/:id", function(req, res) {
-//   // logic to modify the movie information
-//   const modifiedMovie = {
-//     id: req.params.id,
-//     title: "Modified movie title",
-//     director: "Modified director",
-//     year: "Modified year"
-//   };
-//   res.json(modifiedMovie);
-// });
-
 // remove movie by ID. See how to read the ID
 app.delete("/api/remove/:id", function(req, res) {
   res.send("Remove the movie by " + req.params.id);
