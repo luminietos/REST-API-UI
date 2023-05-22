@@ -23,7 +23,7 @@ At the top of the website (below the heading) is a search field. Below the searc
 
 <img width="159" alt="mflix movies, mobile size, search all button" src="https://github.com/luminietos/REST-API-UI/assets/77718358/8b412cbf-4ad9-4a77-b28c-2167f9ddbeee">
 
-(screen size: mobile view)
+(screen size: smaller mobile view)
 
 ### the "Submit" button
 
@@ -31,7 +31,7 @@ The first button is the submit button. If the user enters the name or ID of a mo
 
 <img width="334" alt="mflix movies, mobile size, submit button" src="https://github.com/luminietos/REST-API-UI/assets/77718358/96a33ca2-69b6-4873-ba76-d522764d2d3c">
 
-(screen size: mobile view)
+(screen size: larger mobile view)
 
 ### the "Search all" button
 
