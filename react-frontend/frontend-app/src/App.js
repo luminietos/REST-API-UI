@@ -68,7 +68,7 @@ const App = () => {
       });
   
       if (!response.ok) {
-        throw new Error("Failed to modify the movie."); // Throw an error if the response is not successful
+        throw new Error("Failed to modify the movie."); // throws an error if the response is not successful 
       }
   
       const data = await response.json();
